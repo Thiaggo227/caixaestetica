@@ -1,0 +1,384 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: #eef5f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000028;
+}
+
+h1 {
+    color: #0077b6;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #00b4d8;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #0077b6;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #dcdcdc;
+    margin: 25px 0;
+}
+
+/* Formulário */
+#finance-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 600;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #b4d6e7;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    background-color: #fbfdfe;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #0077b6;
+}
+
+button {
+    grid-column: span 2;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #005f94;
+}
+
+/* Tabela */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.table-header h3 {
+    margin-bottom: 0;
+}
+
+.table-header div {
+    display: flex;
+    gap: 8px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #caf0f8;
+    color: #005f94;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f4fafd;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.btnSaveData, .btnShare {
+    background-color: #caf0f8;
+    color: #0077b6;
+    border: 1px solid #b4d6e7;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.btnSaveData:hover {
+    background-color: #2a9d8f;
+    color: white;
+    border-color: #2a9d8f;
+}
+
+.btnShare:hover {
+    background-color: #0077b6;
+    color: white;
+    border-color: #0077b6;
+}
+
+/* Total e Histórico */
+.total-container {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#total-amount {
+    color: #0077b6;
+    font-weight: bold;
+}
+
+.historic {
+    background-color: #ffffff;
+    color: #0077b6;
+    border: 2px solid #0077b6;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.historic:hover {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+/* Modais */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 380px;
+    width: 90%;
+    border-top: 5px solid #0077b6;
+}
+
+.modal-box p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-btn {
+    padding: 8px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+}
+
+.modal-btn.yes {
+    background-color: #0077b6;
+    color: white;
+}
+
+.modal-btn.yes:hover {
+    background-color: #005f94;
+}
+
+.modal-btn.no {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.modal-btn.no:hover {
+    background-color: #d5d5d5;
+}
+
+/* Lista do Histórico e Ações Internas */
+.historic-item {
+    background-color: #f4fafd;
+    border: 1px solid #b4d6e7;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.historic-info {
+    flex-grow: 1;
+}
+
+.historic-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;
+}
+
+.hist-btn-share {
+    background-color: #eef5f9;
+    color: #0077b6;
+    border: 1px solid #b4d6e7;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.hist-btn-share:hover {
+    background-color: #0077b6;
+    color: #fff;
+}
+
+.hist-btn-delete {
+    background-color: #ffeef0;
+    color: #ff4d4d;
+    border: 1px solid #ffccd3;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.hist-btn-delete:hover {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+@media (max-width: 600px) {
+    #finance-form {
+        grid-template-columns: 1fr;
+    }
+    
+    button[type="submit"], .form-group {
+        grid-column: span 1;
+    }
+    
+    .historic-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .historic-actions {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    /* --- O SEU NOVO AJUSTE DO BOTÃO DE HISTÓRICO DISCRETO NO CELULAR --- */
+    .historic {
+        padding: 6px 12px;         /* Diminui o tamanho do botão (menos espaçamento) */
+        font-size: 12px;           /* Letra menor */
+        border: 1.5px solid #a2d2ff; /* Borda em azul bem mais suave e discreto */
+        color: #0077b6;            /* Mantém o texto legível */
+        background-color: #f8fbfd; /* Fundo levemente esbranquiçado/azul para suavizar */
+    }
+    
+    .historic:hover {
+        background-color: #0077b6;
+        color: #ffffff;
+        border-color: #0077b6;
+    }
+
+    /* Ajusta o container do total no celular para o botão não esmagar o texto */
+    .total-container {
+        font-size: 16px;           /* Reduz ligeiramente o texto do Total Acumulado */
+        gap: 10px;
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa | Clínica de Estética</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gerenciamento Financeiro</h1>
+        <h2>Clínica de Estética</h2>
+
+        <form id="finance-form">
+            <div class="form-group">
+                <label for="client-name">Nome do Cliente:</label>
+                <input type="text" id="client-name" required placeholder="Digite o nome completo">
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Valor (R$):</label>
+                <input type="number" id="amount" step="0.01" required placeholder="0,00">
+            </div>
+
+            <div class="form-group">
+                <label for="service-type">Tipo de Serviço:</label>
+                <input type="text" id="service-type" required placeholder="Ex: Sobrancelha, Limpeza de pele">
+            </div>
+
+            <div class="form-group">
+                <label for="payment-method">Forma de Pagamento:</label>
+                <select id="payment-method" required>
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                    <option value="Cartão de Crédito">Cartão de Crédito</option>
+                    <option value="Cartão de Débito">Cartão de Débito</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Data:</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <button type="submit">Registrar Entrada</button>
+        </form>
+
+        <hr>
+
+        <div class="table-header">
+            <h3>Histórico de Entradas</h3>
+            <div>
+                <button type="button" class="btnSaveData" id="btnSaveData" title="Salvar e Fechar Mês">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                </button>
+                <button type="button" class="btnShare" id="btnShare" title="Compartilhar Relatório">
+                    <i class="fa-solid fa-share-from-square"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="records-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Serviço</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+        
+        <div class="total-container" style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <button type="button" class="historic" id="historic">Histórico do mês</button>
+            <div>
+                <strong>Total Acumulado:</strong> <span id="total-amount">R$ 0,00</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-box">
+            <p>Deseja excluir serviço?</p>
+            <div class="modal-buttons">
+                <button id="btn-confirm-yes" class="modal-btn yes">Sim</button>
+                <button id="btn-confirm-no" class="modal-btn no">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="save-modal" class="modal-overlay">
+        <div class="modal-box" style="border-top-color: #2a9d8f;">
+            <p>Deseja fechar o mês atual e mover tudo para o Histórico? A tabela atual será limpa.</p>
+            <div class="modal-buttons">
+                <button id="btn-save-yes" class="modal-btn yes" style="background-color: #2a9d8f;">Sim, Salvar</button>
+                <button id="btn-save-no" class="modal-btn no">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="historic-modal" class="modal-overlay">
+        <div class="modal-box" style="max-width: 550px;">
+            <p>Histórico por mês</p>
+            <div id="historic-list" style="text-align: left; max-height: 350px; overflow-y: auto; margin-bottom: 20px;">
+                </div>
+            <div class="modal-buttons">
+                <button id="btn-close-historic" class="modal-btn no">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
